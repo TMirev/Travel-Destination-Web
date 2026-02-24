@@ -225,3 +225,4 @@
 {"location":"dropdown.js:init","message":"Dropdown script loaded","data":{"viewportWidth":430,"hasDropdown":true,"hasButton":true,"hasContent":true},"timestamp":1771926283515,"hypothesisId":"H1"}
 {"location":"dropdown.js:toggle","message":"Button clicked","data":{"viewportWidth":430,"openAfter":true,"pointerType":"touch"},"timestamp":1771926285616,"hypothesisId":"H1"}
 {"location":"dropdown.js:init","message":"Dropdown script loaded","data":{"viewportWidth":430,"hasDropdown":true,"hasButton":true,"hasContent":true},"timestamp":1771926287013,"hypothesisId":"H1"}
+{"location":"dropdown.js:init","message":"Dropdown script loaded","data":{"viewportWidth":914,"hasDropdown":true,"hasButton":true,"hasContent":true},"timestamp":1771955943986,"hypothesisId":"H1"}
