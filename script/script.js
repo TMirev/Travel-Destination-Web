@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize map
-    const map = L.map("map").setView([48.8566, 2.3522], 4); // Paris
+    const map = L.map("map").setView([48.8566, 2.3522], 4);
 
-    // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
-    // Add sample markers
     const destinations = [
         { name: "Paris", coords: [48.8566, 2.3522] },
         { name: "Rome", coords: [41.9028, 12.4964] },
@@ -20,5 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
             .bindPopup(`<b>${dest.name}</b>`)
             .openPopup();
     });
+
+    function refreshMapSize() {
+        map.invalidateSize();
+    }
+
+    window.addEventListener("resize", refreshMapSize);
+    setTimeout(refreshMapSize, 100);
 });
 

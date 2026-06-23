@@ -13,7 +13,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url('https://source.unsplash.com/1600x600/?travel') no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
     height: 35vh;
     display: flex;
     align-items: center;
@@ -428,22 +428,42 @@ button[type="submit"] {
 
 .card-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-    overflow-x: auto;
     padding: 10px;
-    scroll-snap-type: x mandatory;
-}
-
-.destination-card {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .center-wrapper {
-    height: 50vh;
+    min-height: 50vh;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem 1rem 3rem;
+}
+
+.page-top-destinations .center-wrapper {
+    align-items: flex-start;
+    padding-top: 0.5rem;
+}
+
+.page-top-destinations .card-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    max-width: none;
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 1rem 20px;
+}
+
+.page-top-destinations .destination-card {
+    flex: 0 0 320px;
+    max-width: 320px;
+    margin: 10px;
 }
 
 button {
@@ -557,9 +577,8 @@ h1 {
     }
 
     /* Pages without hero: dropdown below header on tablets */
-    .page-top-destinations .dropdown,
     .page-confirmation .dropdown,
-    .page-interactive-map .dropdown {
+    .page-contacts .dropdown {
         top: 0;
         right: auto;
         left: 10px;
@@ -601,6 +620,17 @@ h1 {
         padding: 1rem 0;
     }
 
+    .page-top-destinations .card-container {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+
+    .page-top-destinations .destination-card {
+        flex: 0 0 300px;
+        max-width: 300px;
+    }
+
     .card-container {
         flex-wrap: wrap;
         justify-content: center;
@@ -617,11 +647,6 @@ h1 {
     .page-interactive-map .container {
         width: 92%;
         padding: 24px 20px;
-    }
-
-    .page-interactive-map #map {
-        height: 400px;
-        margin-top: 1.5rem;
     }
 }
 
@@ -649,25 +674,28 @@ h1 {
     }
 
     /* Pages without hero: keep dropdown below header so it doesn’t cover the title */
-    .page-top-destinations .dropdown,
     .page-confirmation .dropdown,
-    .page-interactive-map .dropdown {
+    .page-contacts .dropdown {
         top: 0;
         right: auto;
         left: 8px;
         margin: 0.5rem 8px 0;
     }
 
-    /* Interactive Map page: stack search controls, full-width map */
+    /* Interactive Map page: stack search controls */
     .page-interactive-map .container {
         width: 95%;
         padding: 20px 16px;
     }
 
+    .page-interactive-map .map-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     .page-interactive-map #locationInput {
         width: 100%;
         max-width: none;
-        margin-bottom: 0.5rem;
     }
 
     .page-interactive-map #searchButton {
@@ -677,14 +705,17 @@ h1 {
     }
 
     .page-interactive-map #map {
-        height: 300px;
-        margin-top: 1rem;
-        min-height: 250px;
+        height: clamp(260px, 42vh, 360px);
     }
 
     .dropbtn {
         width: 100%;
         padding: 0.9rem 1.5rem;
+    }
+
+    .page-confirmation .dropbtn,
+    .page-contacts .dropbtn {
+        width: auto;
     }
 
     .dropdown-content {
@@ -757,16 +788,10 @@ h1 {
         top: -68px;
     }
 
-    .page-top-destinations .dropdown,
     .page-confirmation .dropdown,
-    .page-interactive-map .dropdown {
+    .page-contacts .dropdown {
         top: 0;
         margin: 0.5rem 8px 0;
-    }
-
-    .page-interactive-map #map {
-        height: 260px;
-        min-height: 220px;
     }
 
     .contact-container input,
@@ -792,20 +817,10 @@ h1 {
         font-size: 1.15rem;
     }
 
-    .page-top-destinations .dropdown,
     .page-confirmation .dropdown,
-    .page-interactive-map .dropdown {
+    .page-contacts .dropdown {
         top: 0;
         margin: 0.4rem 6px 0;
-    }
-
-    .page-interactive-map .container {
-        padding: 16px 12px;
-    }
-
-    .page-interactive-map #map {
-        height: 240px;
-        min-height: 200px;
     }
 
     .destinations,
@@ -816,7 +831,7 @@ h1 {
     .container,
     .contact-container {
         padding: 12px;
-        width: 50%;
+        width: 95%;
     }
 
     .message-box {
@@ -829,35 +844,39 @@ h1 {
     }
 }
 
-.overlay {
+/* About page: hero grows with long intro copy */
+.page-about .hero {
+    height: auto;
+    min-height: 45vh;
+    padding: 2.5rem 1rem 3rem;
+    margin-bottom: 2rem;
+}
+
+.page-about .overlay {
     display: block;
     padding-top: 40px;
+    height: auto;
+    min-height: 0;
 }
 
-/* Large screens only: tall overlay for About-style content */
-@media (min-width: 835px) {
-    .hero .overlay {
-        height: 60vh;
-        padding-top: 40px;
-    }
-}
-
-.overlay p {
+.page-about .overlay p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 20px 15px;
+    .page-about .hero {
+        padding: 20px 15px 2rem;
+        min-height: auto;
     }
 
-    .overlay {
+    .page-about .overlay {
         padding: 25px 15px;
+        width: 92%;
     }
 
-    .overlay p {
+    .page-about .overlay p {
         font-size: 1rem;
         line-height: 1.55;
     }
@@ -865,9 +884,8 @@ h1 {
 
 @media (min-width: 600px) {
 
-    .page-top-destinations .dropdown,
     .page-confirmation .dropdown,
-    .page-interactive-map .dropdown {
+    .page-contacts .dropdown {
         top: 0;
         right: auto;
         left: 8px;
@@ -875,8 +893,8 @@ h1 {
     }
 }
 
-.page-top-destinations .dropdown,
 .page-confirmation .dropdown,
+.page-contacts .dropdown,
 .page-yourpage .dropdown {
     top: 0;
     right: auto;
@@ -884,16 +902,336 @@ h1 {
     margin: 0.5rem 8px 0;
 }
 
-.page-interactive-map .dropdown {
-    top: 0;
-    margin: 0.4rem 6px 0;
+/* Interactive Map page layout */
+.page-interactive-map .container {
+    max-width: 960px;
+    width: min(94%, 960px);
+    margin: 1.5rem auto 2.5rem;
+    padding: clamp(16px, 3vw, 28px);
 }
 
-.page-interactive-map .container {
-    padding: 16px 12px;
+.page-interactive-map .container > h1 {
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    margin-bottom: 1rem;
+}
+
+.page-interactive-map .map-search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.page-interactive-map #locationInput {
+    flex: 1 1 240px;
+    width: min(100%, 380px);
+    max-width: 380px;
+    margin: 0;
+}
+
+.page-interactive-map #searchButton {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 120px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+}
+
+.page-interactive-map #weatherInfo {
+    margin: 0.5rem 0 0.75rem;
+    min-height: 1.25rem;
 }
 
 .page-interactive-map #map {
-    height: 240px;
-    min-height: 200px;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(300px, 50vh, 480px);
+    margin: 1rem auto 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Top nav: Menu inside navbar, top left */
+.page-top-destinations header.top-nav,
+.page-interactive-map header.top-nav,
+.page-travel-tips header.top-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 7rem;
+    padding: 1.2rem 1rem;
+}
+
+.page-top-destinations header.top-nav h1,
+.page-interactive-map header.top-nav h1,
+.page-travel-tips header.top-nav h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.page-top-destinations header.top-nav .dropdown,
+.page-interactive-map header.top-nav .dropdown,
+.page-travel-tips header.top-nav .dropdown {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    text-align: left;
+    width: auto;
+    box-shadow: none;
+}
+
+.page-top-destinations header.top-nav .dropbtn,
+.page-interactive-map header.top-nav .dropbtn,
+.page-travel-tips header.top-nav .dropbtn {
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    .page-top-destinations header.top-nav,
+    .page-interactive-map header.top-nav,
+    .page-travel-tips header.top-nav {
+        min-height: 5.5rem;
+    }
+
+    .page-top-destinations header.top-nav .dropdown,
+    .page-interactive-map header.top-nav .dropdown,
+    .page-travel-tips header.top-nav .dropdown {
+        left: 8px;
+        top: 8px;
+        right: auto;
+        transform: none;
+        text-align: left;
+    }
+
+    .page-top-destinations header.top-nav .dropbtn,
+    .page-interactive-map header.top-nav .dropbtn,
+    .page-travel-tips header.top-nav .dropbtn {
+        width: auto;
+    }
+
+    .page-top-destinations header.top-nav .dropdown-content,
+    .page-interactive-map header.top-nav .dropdown-content,
+    .page-travel-tips header.top-nav .dropdown-content {
+        min-width: 160px;
+        left: 0;
+        right: auto;
+    }
+}
+
+/* ===== Global responsive (phone & tablet) ===== */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card img {
+    display: inline-block;
+}
+
+.contact-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.contact-teaser {
+    padding: 0 1rem 2rem;
+}
+
+.contact-teaser .subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-teaser .email-input {
+    width: 100%;
+}
+
+.contact-teaser button[type="submit"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+.card h5 {
+    padding: 0.75rem 1rem 0;
+    font-size: 1.1rem;
+}
+
+/* Tablet */
+@media (max-width: 834px) {
+    h1 {
+        font-size: 1.25rem;
+        letter-spacing: 1.5px;
+        padding: 0.85rem;
+    }
+
+    .tip-card {
+        width: calc(50% - 16px);
+        padding: 28px 24px;
+    }
+
+    .tips-container {
+        width: 94%;
+        padding: 0 0.5rem;
+    }
+
+    .contact-container {
+        width: 92%;
+        margin: 1rem auto 2rem;
+    }
+
+    .page-top-destinations header.top-nav h1,
+    .page-interactive-map header.top-nav h1,
+    .page-travel-tips header.top-nav h1 {
+        font-size: clamp(0.9rem, 2.8vw, 1.25rem);
+        letter-spacing: 1px;
+        padding: 0 4.5rem;
+    }
+
+    .page-top-destinations header.top-nav .dropbtn,
+    .page-interactive-map header.top-nav .dropbtn,
+    .page-travel-tips header.top-nav .dropbtn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .card-section {
+        padding: 2rem 0.75rem;
+    }
+
+    .card {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+
+    .tip-card {
+        width: 100%;
+        padding: 24px 20px;
+    }
+
+    .tips-container {
+        width: 95%;
+        margin: 1.25rem auto;
+        gap: 12px;
+    }
+
+    .contact-container {
+        width: 95%;
+        margin: 0.75rem auto 2rem;
+        padding: 20px 16px;
+    }
+
+    .contact-teaser h2 {
+        font-size: 1.35rem;
+    }
+
+    .message-box {
+        margin: 2rem auto;
+    }
+
+    .page-top-destinations header.top-nav,
+    .page-interactive-map header.top-nav,
+    .page-travel-tips header.top-nav {
+        min-height: 4.5rem;
+        padding: 0.85rem 0.5rem;
+    }
+
+    .page-top-destinations header.top-nav h1,
+    .page-interactive-map header.top-nav h1,
+    .page-travel-tips header.top-nav h1 {
+        font-size: clamp(0.8rem, 3.2vw, 1rem);
+        letter-spacing: 0.5px;
+        padding: 0 3.75rem;
+        line-height: 1.3;
+    }
+
+    .page-top-destinations header.top-nav .dropbtn,
+    .page-interactive-map header.top-nav .dropbtn,
+    .page-travel-tips header.top-nav .dropbtn {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .page-top-destinations .destination-card {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        margin: 8px;
+    }
+
+    .page-top-destinations .card-container {
+        justify-content: flex-start;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .page-home .dropdown,
+    .page-about .dropdown {
+        top: -64px;
+        left: 8px;
+        right: auto;
+        text-align: left;
+        width: auto;
+    }
+
+    .page-home .dropbtn,
+    .page-about .dropbtn {
+        width: auto;
+        padding: 0.65rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .page-home .dropdown-content,
+    .page-about .dropdown-content {
+        min-width: 160px;
+        width: auto;
+        left: 0;
+        right: auto;
+    }
+}
+
+/* Small phone */
+@media (max-width: 390px) {
+    .page-top-destinations header.top-nav h1,
+    .page-interactive-map header.top-nav h1,
+    .page-travel-tips header.top-nav h1 {
+        font-size: 0.75rem;
+        padding: 0 3.25rem;
+    }
+
+    .tip-card {
+        padding: 20px 16px;
+    }
+
+    .card-section {
+        padding: 1.5rem 0.5rem;
+    }
 }
