@@ -8,7 +8,7 @@
 
 ## 📖 Overview
 
-**Travel Destination Web** is a modern, fully-responsive travel exploration platform designed to inspire wanderlust and simplify travel planning. Users can discover curated global destinations, explore interactive maps, access practical travel tips, and connect with travel advisors—all through an intuitive, accessible interface.
+**Travel Destination Web** is a modern, fully-responsive travel exploration platform designed to inspire wanderlust and simplify travel planning. Users can discover curated global destinations, explore detailed travel tips, and connect with travel planners through an intuitive contact system.
 
 Perfect for travelers at any stage of their journey, from dreamers seeking inspiration to planners booking their next adventure.
 
@@ -241,29 +241,6 @@ Tiny Phone:    Below 390px (minimal spacing)
 
 ---
 
-## 🔮 Future Roadmap
-
-### Phase 2 (Upcoming)
-- [ ] Backend API for contact form submissions
-- [ ] Database integration (MongoDB/Firebase)
-- [ ] User authentication & accounts
-- [ ] Save favorites feature
-
-### Phase 3 (Planned)
-- [ ] Leaflet.js interactive maps
-- [ ] Real-time weather API integration
-- [ ] User reviews & ratings system
-- [ ] Blog/articles section
-- [ ] Multi-language support (i18n)
-
-### Phase 4 (Wishlist)
-- [ ] Dark mode theme
-- [ ] Advanced search & filtering
-- [ ] Social media integration
-- [ ] Mobile app (React Native)
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Here's how to get involved:
@@ -297,36 +274,6 @@ git push origin feature/amazing-feature
 
 ---
 
-## 📝 License
-
-This project is open-source and distributed under the **MIT License**.
-
-See [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 About the Author
-
-**Tenko Mirev**
-- GitHub: [@TMirev](https://github.com/TMirev)
-- Portfolio: [View on GitHub](https://github.com/TMirev)
-
----
-
-## 💬 Support & Feedback
-
-### Get Help
-- 📧 **Email:** Use the contact form on the website
-- 🐛 **Report Issues:** [Open an issue on GitHub](https://github.com/TMirev/Travel-Destination-Web/issues)
-- 💡 **Suggest Features:** [Create a feature request](https://github.com/TMirev/Travel-Destination-Web/issues/new)
-
-### Connect
-- ⭐ Star this repository if you found it helpful!
-- 🔔 Watch for updates and improvements
-- 🤝 Share with fellow travelers and developers
-
----
-
 ## 📊 Project Stats
 
 - **Pages:** 7 (Home, About, Destinations, Map, Tips, Contact, Confirmation)
@@ -336,18 +283,6 @@ See [LICENSE](LICENSE) file for details.
 - **Images:** 10+ destination photos
 - **Mobile Breakpoints:** 5 responsive layouts
 - **Development Time:** Ongoing ✨
-
----
-
-## 🎓 Learning Resources
-
-This project demonstrates:
-- 📱 Responsive Web Design (Mobile-First Approach)
-- 🎯 Semantic HTML5 Structure
-- 🎨 Advanced CSS3 Layouts (Flexbox, Grid, Media Queries)
-- ⚡ Vanilla JavaScript DOM Manipulation
-- ♿ Web Accessibility (WCAG Guidelines)
-- 🚀 Static Site Hosting & Deployment
 
 ---
 
@@ -372,15 +307,3 @@ This project demonstrates:
 - **Photography:** Unsplash & Creative Commons
 - **Inspiration:** Travel blogs & tourism websites
 - **Community:** All contributors and supporters
-
----
-
-<div align="center">
-
-### Made with ❤️ for travel enthusiasts everywhere
-
-[Visit the Site](https://TMirev.github.io/Travel-Destination-Web/) • [GitHub Repository](https://github.com/TMirev/Travel-Destination-Web) • [Report Issues](https://github.com/TMirev/Travel-Destination-Web/issues)
-
-**Thank you for exploring our travel destination platform!** 🌎✈️🗺️
-
-</div>
